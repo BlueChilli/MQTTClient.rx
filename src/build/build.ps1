@@ -8,11 +8,11 @@ param([string]$version)
 if ([string]::IsNullOrEmpty($version)) {$version = "0.0.1"}
 
 $msbuild = '"C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\MSBuild.exe" ..\interface\IMQTTClient.rx\IMQTTClientRx.csproj /t:Build /p:Configuration="Release"'
-Invoke-Expression $msbuild
+Invoke-Expression "&$msbuild"
 
 $msbuild1 = '"C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\MSBuild.exe" ..\main\MQTTClientRx.netstandard20\MQTTClientRx.netstandard20.csproj /t:Build /p:Configuration="Release"'
 #&$msbuild ..\main\MQTTClient.rx\MQTTClientRx.csproj /t:Build /p:Configuration="Release"
-Invoke-Expression $msbuild1
+Invoke-Expression "&$msbuild1"
 #&$msbuild ..\main\MQTTClientRx.UWP\MQTTClientRx.UWP.csproj /t:Build /p:Configuration="Release"
 
 
