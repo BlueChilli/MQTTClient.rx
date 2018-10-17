@@ -47,7 +47,7 @@ namespace MQTTClientRx.Model
                 });
 
 
-        public bool IsConnected { get; private set; }
+        public bool IsConnected => _mqttClient?.IsConnected ?? false;
 
         internal MQTTClient(IMQTTService mqttService, ITopicFilter [] topicFilters)
         {
@@ -63,26 +63,8 @@ namespace MQTTClientRx.Model
         {
             if (!_mqttService.IsConnected)
             {
-                try
-                {
-                    var opt = UnwrapOptions(_mqttService.ClientOptions, _mqttService.WillMessage);
-                 
-                    var connectResult = await _mqttClient.ConnectAsync(opt);
-
-                    IsConnected = connectResult.IsSessionPresent;
-
-                    if (!_mqttService.IsConnected)
-                    {
-                        var t = "";
-                        //obs.OnError(new Exception("Unable to connect"));
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    IsConnected = false;
-                    //obs.OnError(ex);
-                }
+                var opt = UnwrapOptions(_mqttService.ClientOptions, _mqttService.WillMessage);
+                await _mqttClient.ConnectAsync(opt);
             }
         }
 
