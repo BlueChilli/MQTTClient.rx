@@ -1,0 +1,15 @@
+{
+	"productName": "MQTTClientRx",
+	"projectName": "MQTTClientRx",
+	"githubOwner": "1iveowl",
+	"githubRepository": "MQTTClientRx.rx",
+	"packageWhiteList": ["MQTTClientRx"],
+	"solutionFile": "../src/MQTTClientRx.sln",
+	"tags": ["MQTTClientRx"],
+	"authors": ["1iveowl"],
+	"copyright": "MIT",
+	"iconUrl": "https://avatars0.githubusercontent.com/u/5924219?v=3&s=200",
+	"testProjectDll": "",
+	"runUnitTests": false,
+	"artifactDirectory": "../build/artifacts/"
+}

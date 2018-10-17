@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>MQTTClientRx</PackageId>    
+    <Description>MQTTClientRx</Description>
+    <RepositoryUrl>https://github.com/1iveowl/MQTTClient.rx</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/1iveowl/MQTTClient.rx/blob/master/LICENSE</PackageLicenseUrl>
+    <Company>1iveowl</Company>
+    <Authors>1iveowl</Authors>
+    <SourceLinkUrl>https://github.com/BlueChilli/MQTTClient.rx/</SourceLinkUrl>
+    <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>
+    <Product>$(AssemblyName) ($(TargetFramework))</Product>
+    <LangVersion>7.3</LangVersion>
+    <DefineConstants>$(DefineConstants);</DefineConstants>
+    <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+    <AssemblyVersion>3.2.2.1</AssemblyVersion>
+    <FileVersion>3.2.2.1</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MQTTnet" Version="2.8.2" />
+    <PackageReference Include="System.Reactive" Version="4.1.0" />
+  </ItemGroup>
+
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+</Project>
