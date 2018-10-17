@@ -1,14 +1,7 @@
 param([string]$betaver,
 [string]$key,
-[string]$source)
-
-
-if ([string]::IsNullOrEmpty($betaver)) {
-	$version = [Reflection.AssemblyName]::GetAssemblyName((resolve-path '..\interface\IMQTTClient.rx\bin\Release\netstandard2.0\IMQTTClientRx.dll')).Version.ToString(3)
-	}
-else {
-	$version = [Reflection.AssemblyName]::GetAssemblyName((resolve-path '..\interface\IMQTTClient.rx\bin\Release\netstandard2.0\IMQTTClientRx.dll')).Version.ToString(3) + "-" + $betaver
-}
+[string]$source,
+[string] $version)
 
 .\build.ps1 $version
 
