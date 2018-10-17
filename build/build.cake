@@ -116,21 +116,21 @@ string buildVersion;
 
 Action SetGitVersionData = () => {
 
-	if(!isPullRequest && isRunningOnWindows) {
-		var gitVersion = GitVersion();
-		majorMinorPatch = gitVersion.MajorMinorPatch;
-		semVersion = gitVersion.SemVer;
-		informationalVersion = gitVersion.InformationalVersion;
-		nugetVersion = gitVersion.NuGetVersion;
-		buildVersion = gitVersion.FullBuildMetaData;
-	}
-	else {
-		majorMinorPatch = "1.0.0";
+	// if(!isPullRequest && isRunningOnWindows) {
+	// 	var gitVersion = GitVersion();
+	// 	majorMinorPatch = gitVersion.MajorMinorPatch;
+	// 	semVersion = gitVersion.SemVer;
+	// 	informationalVersion = gitVersion.InformationalVersion;
+	// 	nugetVersion = gitVersion.NuGetVersion;
+	// 	buildVersion = gitVersion.FullBuildMetaData;
+	// }
+	// else {
+		majorMinorPatch = "3.2.2.2";
 		semVersion = "0";
-		informationalVersion ="1.0.0";
-		nugetVersion = "1.0.0";
+		informationalVersion ="3.2.2.2";
+		nugetVersion = "3.2.2.2";
 		buildVersion = "alpha";
-	}
+	//}
 };
 
 SetGitVersionData();
