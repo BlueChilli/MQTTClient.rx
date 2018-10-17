@@ -1,6 +1,7 @@
-param([string]$betaver)
-param([string]$key)
-param([string]$source)
+param([string]$betaver,
+[string]$key,
+[string]$source)
+
 
 if ([string]::IsNullOrEmpty($betaver)) {
 	$version = [Reflection.AssemblyName]::GetAssemblyName((resolve-path '..\interface\IMQTTClient.rx\bin\Release\netstandard2.0\IMQTTClientRx.dll')).Version.ToString(3)
