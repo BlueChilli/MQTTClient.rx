@@ -1,4 +1,6 @@
 param([string]$betaver)
+param([string]$key)
+param([string]$source)
 
 if ([string]::IsNullOrEmpty($betaver)) {
 	$version = [Reflection.AssemblyName]::GetAssemblyName((resolve-path '..\interface\IMQTTClient.rx\bin\Release\netstandard2.0\IMQTTClientRx.dll')).Version.ToString(3)
@@ -9,4 +11,4 @@ else {
 
 .\build.ps1 $version
 
-c:\tools\nuget\nuget.exe push -Source "1iveowlNuGetRepo" -ApiKey key ".\NuGet\MQTTClientRx.$version.symbols.nupkg"
+c:\tools\nuget\nuget.exe push -Source $source -ApiKey $key ".\NuGet\MQTTClientRx.$version.symbols.nupkg"
