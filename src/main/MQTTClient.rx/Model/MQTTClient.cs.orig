@@ -63,8 +63,29 @@ namespace MQTTClientRx.Model
         {
             if (!_mqttService.IsConnected)
             {
+<<<<<<< HEAD
+                try
+                {
+                    var opt = UnwrapOptions(_mqttService.ClientOptions, _mqttService.WillMessage);
+                 
+                    var connectResult = await _mqttClient.ConnectAsync(opt);
+
+                    IsConnected = connectResult.IsSessionPresent;
+
+                    if (!_mqttService.IsConnected)
+                    {
+                        var t = "";
+                    }
+
+                }
+                catch (Exception)
+                {
+                    IsConnected = false;
+                }
+=======
                 var opt = UnwrapOptions(_mqttService.ClientOptions, _mqttService.WillMessage);
                 await _mqttClient.ConnectAsync(opt);
+>>>>>>> master
             }
         }
 
