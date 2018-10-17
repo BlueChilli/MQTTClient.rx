@@ -9,7 +9,6 @@
     <LangVersion>7.3</LangVersion>
     <AssemblyVersion>3.2.2.1</AssemblyVersion>
     <FileVersion>3.2.2.1</FileVersion>
-    <PackageVersion>3.2.2.1</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
