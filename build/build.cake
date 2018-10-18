@@ -11,7 +11,7 @@ using System.Text.RegularExpressions;
 //////////////////////////////////////////////////////////////////////
 
 #tool "GitReleaseManager"
-#tool "GitVersion.CommandLine"
+#tool "nuget:?package=GitVersion.CommandLine&version=3.6.5"
 #tool "GitLink"
 #tool "nuget:?package=xunit.runner.console&version=2.1.0"
 #tool nuget:?package=vswhere
@@ -116,21 +116,21 @@ string buildVersion;
 
 Action SetGitVersionData = () => {
 
-	// if(!isPullRequest && isRunningOnWindows) {
-	// 	var gitVersion = GitVersion();
-	// 	majorMinorPatch = gitVersion.MajorMinorPatch;
-	// 	semVersion = gitVersion.SemVer;
-	// 	informationalVersion = gitVersion.InformationalVersion;
-	// 	nugetVersion = gitVersion.NuGetVersion;
-	// 	buildVersion = gitVersion.FullBuildMetaData;
-	// }
-	// else {
+	 if(!isPullRequest) {
+	 	var gitVersion = GitVersion();
+	 	majorMinorPatch = gitVersion.MajorMinorPatch;
+	 	semVersion = gitVersion.SemVer;
+	 	informationalVersion = gitVersion.InformationalVersion;
+	 	nugetVersion = gitVersion.NuGetVersion;
+	 	buildVersion = gitVersion.FullBuildMetaData;
+	 }
+	 else {
 		majorMinorPatch = "3.2.2.2";
 		semVersion = "0";
 		informationalVersion ="3.2.2.2";
 		nugetVersion = "3.2.2.2";
 		buildVersion = "alpha";
-	//}
+	}
 };
 
 SetGitVersionData();
